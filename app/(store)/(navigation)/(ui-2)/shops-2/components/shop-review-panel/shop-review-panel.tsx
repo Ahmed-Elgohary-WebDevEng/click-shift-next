@@ -1,0 +1,22 @@
+import ReviewList from "@/app/(store)/components/reviews/review-list";
+import ReviewSummary from "@/app/(store)/components/reviews/review-summary";
+import React from "react";
+import ShopReviewCreate from "../shop-reviw-create";
+
+interface ShopReviewProps {
+  id?: number;
+}
+
+const ShopReviewPanel = ({ id }: ShopReviewProps) => (
+  <div className="grid grid-cols-7 gap-7 mb-4 mt-2">
+    <div className="l:col-span-5 lg:col-span-4 col-span-7">
+      <ReviewList title="reviews" type="shops" id={id?.toString()} />
+    </div>
+    <div className="xl:col-span-2 lg:col-span-3 col-span-7 mb-8 md:mb-0">
+      <ReviewSummary type="shops" typeId={id} />
+      <ShopReviewCreate id={id} />
+    </div>
+  </div>
+);
+
+export default ShopReviewPanel;
